@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 7b32e3319736ae4eca17b3f3d5b7883c) *)
+(* DO NOT EDIT (digest: 8046754117b4b9fba9c98f19fcc377d7) *)
 module OASISGettext = struct
 (* # 22 "src/oasis/OASISGettext.ml" *)
 
@@ -767,11 +767,11 @@ end
 open Ocamlbuild_plugin;;
 let package_default =
   {
-     MyOCamlbuildBase.lib_ocaml = [("mirage-entropy-xen", ["lib"], [])];
-     lib_c = [("mirage-entropy-xen", "lib/", [])];
+     MyOCamlbuildBase.lib_ocaml = [("mirage-entropy-solo5", ["lib"], [])];
+     lib_c = [("mirage-entropy-solo5", "lib/", [])];
      flags =
        [
-          (["oasis_library_mirage_entropy_xen_ccopt"; "compile"],
+          (["oasis_library_mirage_entropy_solo5_ccopt"; "compile"],
             [
                (OASISExpr.EBool true,
                  S
@@ -785,7 +785,7 @@ let package_default =
                       A "-ccopt";
                       A "-Wpedantic";
                       A "-ccopt";
-                      A "${XEN_CFLAGS}"
+                      A "${FREESTANDING_CFLAGS}"
                    ]);
                (OASISExpr.EOr
                   (OASISExpr.ETest ("architecture", "i386"),
@@ -801,7 +801,7 @@ let package_default =
                       A "-ccopt";
                       A "-Wpedantic";
                       A "-ccopt";
-                      A "${XEN_CFLAGS}";
+                      A "${FREESTANDING_CFLAGS}";
                       A "-ccopt";
                       A "-mrdrnd";
                       A "-ccopt";

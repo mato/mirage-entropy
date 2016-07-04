@@ -1,13 +1,13 @@
 # OASIS_START
-# DO NOT EDIT (digest: 94cd7342badae2f1d172e71972b5dc09)
+# DO NOT EDIT (digest: 7e661657ac540d42c133b7a3f5824497)
 version = "0.3.0"
-description = "Entropy provider for MirageOS on Xen"
-requires = "lwt cstruct mirage-xen"
-archive(byte) = "mirage-entropy-xen.cma"
-archive(byte, plugin) = "mirage-entropy-xen.cma"
-archive(native) = "mirage-entropy-xen.cmxa"
-archive(native, plugin) = "mirage-entropy-xen.cmxs"
-xen_linkopts = "-lmirage-entropy-xen_stubs"
-exists_if = "mirage-entropy-xen.cma"
+description = "Entropy provider for MirageOS on Solo5"
+requires = "lwt cstruct mirage-solo5"
+archive(byte) = "mirage-entropy-solo5.cma"
+archive(byte, plugin) = "mirage-entropy-solo5.cma"
+archive(native) = "mirage-entropy-solo5.cmxa"
+archive(native, plugin) = "mirage-entropy-solo5.cmxs"
+freestanding_linkopts = "-lmirage-entropy-solo5_stubs"
+exists_if = "mirage-entropy-solo5.cma"
 # OASIS_STOP
 

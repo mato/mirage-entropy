@@ -1,7 +1,7 @@
 OASISFormat:  0.4
-Name:         mirage-entropy-xen
+Name:         mirage-entropy-solo5
 Version:      0.3.0
-Synopsis:     Entropy provider for MirageOS on Xen
+Synopsis:     Entropy provider for MirageOS on Solo5
 Authors:      Hannes Mehnert, David Kaloper, Anil Madhavapeddy, Dave Scott
 Maintainers:  David Kaloper <david@numm.org>
 License:      BSD-2-clause
@@ -9,17 +9,17 @@ Homepage:     https://github.com/mirage/mirage-entropy
 Plugins:      META (0.4), DevFiles (0.4)
 BuildTools:   ocamlbuild
 Description:
-  Entropy provider for MirageOS on Xen.
+  Entropy provider for MirageOS on Solo5.
 OCamlVersion: >= 4.01.0
 PostConfCommand: ./postconf
 
-Library "mirage-entropy-xen"
+Library "mirage-entropy-solo5"
   Path:             lib/
-  Modules:          Entropy_xen
-  CSources:         entropy_cpu_xen_stubs.c
-  BuildDepends:     lwt, lwt.syntax, cstruct, mirage-xen
-  XMETARequires:    lwt, cstruct, mirage-xen
-  XMETAExtraLines:  xen_linkopts = "-lmirage-entropy-xen_stubs"
-  CCOpt:            -O3 -std=c99 -Wall -Wpedantic $XEN_CFLAGS
+  Modules:          Entropy_solo5
+  CSources:         entropy_cpu_solo5_stubs.c
+  BuildDepends:     lwt, lwt.syntax, cstruct, mirage-solo5
+  XMETARequires:    lwt, cstruct, mirage-solo5
+  XMETAExtraLines:  freestanding_linkopts = "-lmirage-entropy-solo5_stubs"
+  CCOpt:            -O3 -std=c99 -Wall -Wpedantic $FREESTANDING_CFLAGS
   if ( architecture(i386) || architecture(amd64) )
     CCOpt+: -mrdrnd -mrdseed
